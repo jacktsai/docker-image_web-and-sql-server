@@ -11,12 +11,12 @@ RUN powershell -Command \
 
 # setup sql server
 RUN powershell -Command \
-	Invoke-Sqlcmd -Query 'ALTER LOGIN sa with password=''P@ssw0rd''; ALTER LOGIN sa ENABLE;' \
-        set-strictmode -version latest; \
-        stop-service MSSQLSERVER; \
-        set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value ''; \
-        set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpport -value 1433; \
-        set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\' -name LoginMode -value 2;
+	Invoke-Sqlcmd -Query 'ALTER LOGIN sa with password=''P@ssw0rd''; ALTER LOGIN sa ENABLE;'; \
+    set-strictmode -version latest; \
+    stop-service MSSQLSERVER; \
+    set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value ''; \
+    set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpport -value 1433; \
+    set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql13.MSSQLSERVER\mssqlserver\' -name LoginMode -value 2;
 
 EXPOSE 80 1433
 CMD powershell
