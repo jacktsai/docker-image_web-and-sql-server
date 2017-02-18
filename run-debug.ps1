@@ -1,0 +1,1 @@
+docker run --ip="172.20.224.101" -p 80 -p 1433 -it --rm wa0327/docker-image_web-and-sql-server
