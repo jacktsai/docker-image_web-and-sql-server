@@ -1,1 +1,1 @@
-docker run --ip="172.20.224.101" -p 80 -p 1433 -it --rm wa0327/web-and-sql-server
+docker run --name ts --ip="172.20.224.101" -i -p 8080:80 --rm wa0327/web-and-sql-server powershell
